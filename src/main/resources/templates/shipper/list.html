@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h1>Shipper list</h1>
+        <a th:href="@{/shipper/new}">New Shipper</a>
+        <div th:if="${msg!=null}" th:text="${msg}"></div>
+
+        <form method="post" th:action="@{shipper/search}">
+            <input placeholder="search"name="searchName">
+            <button type="submit"> Search</button>
+            <a th:href="@{/shipper}">Clear</a>
+
+        </form>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Shipper name</th>
+                <th>Phone</th>
+                <th></th>
+            </tr>
+            <tr th:each="shipper, v: ${shipperList}" >
+                <td th:text="${v.index+1}"></td>
+                <td th:text="${shipper.companyname}"></td>
+                <td th:text="${shipper.phone}"></td>
+                <td><a th:href="@{'/shipper/edit?id='+${shipper.shipperid}}">Editar</a></td>
+                <td><a th:href="@{'/shipper/delete?id='+${shipper.shipperid}}">Borrar</a></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>territory list</title>
+</head>
+<body>
+<div>
+    <h1>Territory list</h1>
+    <a th:href="@{/territory/new}">Crear</a>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Region id</th>
+            <th></th>
+        </tr>
+        <tr th:each="territorio, v: ${listaTerritorios}" >
+            <td th:text="${territorio.getTerritoryid()}"></td>
+            <td th:text="${territorio.getTerritorydescription()}"></td>
+            <td th:text="${territorio.getRegionid()}"></td>
+            <td><a th:href="@{'/territory/edit?id='+${territorio.getTerritoryid()}}">Editar</a></td>
+            <td><a th:href="@{'/territory/delete?id='+${territorio.getTerritoryid()}}">Borrar</a></td>
+
+
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>

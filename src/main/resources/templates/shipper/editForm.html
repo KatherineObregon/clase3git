@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Transportista</title>
+
+</head>
+<body >
+<h2>Editar Transportista</h2><hr />
+
+<form method="post" th:action="@{'/shipper/save'}" th:object="${shipper}">
+    <input type="hidden" th:field="*{shipperid}">
+    <div >
+        <label for="companyname">Nombre de la compañía</label>
+        <input name="companyname" type="text"  th:field="*{companyname}">
+    </div>
+    <div >
+        <label for="phone">Teléfono</label>
+        <input name="phone" type="text"  th:field="*{phone}">
+    </div>
+    <a th:href="@{'/shipper'}" >Cancelar</a>
+    <button type="submit" >Registrar</button>
+</form>
+</body>
+</html>
+

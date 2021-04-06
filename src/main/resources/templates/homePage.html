@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>HOME PAGE</h1>
+<h2>Nuevo alumno</h2>
+
+<h3>Alumno</h3>
+
+<p th:text="|Nombre del alumno: ${alumno.nombre} |"></p>
+
+<p th:text="'El codigo del alumno es ' +${alumno.codigo} "></p>
+
+
+
+<h1>ALumno</h1>
+<form th:object="${alumno}" method="post" action="/alumno/guardar">
+    <label>Nombre:</label>
+    <input type="text"  th:field="*{nombre}"/> <br/>
+    <label>Apellido:</label>
+    <input type="text" name="apellido" /> <br/>
+    <label>Dni:</label>
+    <input type="text" name="dni" th:value="${alumno.codigo}" /> <br>
+    <input type="submit" value="Registrar" />
+</form>
+<h1>Lista alumnos</h1>
+<img th:src="@{/img/pucp.png}">
+<table>
+    <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Codigo</th>
+    </tr>
+    <tr th:each="alumno, variableEstado : ${listaAlumnos}" >
+        <td th:text="${variableEstado.index+1}"></td>
+        <td th:text="${alumno.nombre}">Pedro</td>
+        <td th:text="${alumno.codigo}"></td>
+    </tr>
+</table>
+
+<h4>Asesores</h4>
+<label for="asesores">Seleccione su asesor</label>
+<form method="post" th:action="@{/formPrueba}">
+    <select id="asesores" name="codigo">
+        <option th:each="alumno: ${listaAlumnos}"
+                th:value="${alumno.codigo}"
+                th:text="${alumno.nombre}">Carla</option>
+    </select>
+    <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form  method="post" th:action="@{/carro/guardar}">
+        <div>
+            <label>Placa:</label>
+            <input type="text"  name="placa"/> <br/>
+        </div>
+        <div>
+            <label>Color:</label>
+            <input type="text" name="color" /> <br/>
+        </div>
+        <div>
+            <label>Marca:</label>
+            <input type="text" name="marca"  /> <br>
+        </div>
+        <div>
+            <label>Año de fabricacion:</label>
+            <input type="text" name="anioFabricacion"  /> <br>
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+</html>

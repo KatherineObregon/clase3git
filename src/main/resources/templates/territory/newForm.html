@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo territorio</title>
+
+</head>
+<body >
+<h2>Nuevo territorio</h2><hr />
+<form method="post" th:action="@{'/territory/save'}">
+    <div >
+        <label for="territoryid">ID del territorio</label>
+        <input name="territoryid" type="text"  id="territoryid">
+    </div>
+    <div >
+        <label for="territorydescription">Descripcion</label>
+        <input name="territorydescription" type="text"  id="territorydescription">
+    </div>
+    <label for="regionid">Seleccione la region Id</label>
+    <select id="regionid" name="regionid">
+        <option value="1">Easter</option>
+        <option value="2">Westerns</option>
+        <option value="3">Northern</option>
+        <option value="4">Southern</option>
+    </select>
+    <a th:href="@{'/territory'}" >Cancelar</a>
+    <button type="submit" >Registrar</button>
+</form>
+</body>
+</html>
